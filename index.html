@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>战舰，最后的防线 V29 · 启动器</title>
+<style>html,body{height:100%;margin:0;background:#061523;color:#e9f5f4;font-family:system-ui,'Microsoft YaHei',sans-serif;display:grid;place-items:center}main{background:linear-gradient(130deg,#102a3a,#091522);padding:28px;border:1px solid #517b8d;border-radius:18px;width:min(540px,calc(100vw - 42px));box-shadow:0 15px 50px #0009}h1{margin:0 0 12px;font-size:25px}p{line-height:1.65;color:#bfd8da}small{color:#9cbdc3}.buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}a,button{color:#f4f7f6;background:#245069;border:1px solid #8aaaba;padding:10px 13px;border-radius:8px;text-decoration:none;cursor:pointer;font-size:13px}button:first-child{background:#bd995e;color:#132731;font-weight:800}#status{font-size:13px;color:#e7c889}</style></head>
+<body><main><h1>⚓ 战舰，最后的防线 V29</h1><p>V29：修正自由相机上下方向；新增船体下方的贴水白沫层，调整船体光照与吃水线。模型保留在原 assets 目录，不重复提供。正在检测服务器本地和在线依赖。</p><p id="status">检查中…</p><div class="buttons"><button id="retry">重新检测</button><a href="index-local.html">使用服务器依赖</a><a href="index-online.html">使用在线依赖</a></div><p><small>管理员首次部署：在服务器上运行 <code>python serve.py --install</code>。玩家不需要安装 Python 或引擎。</small></p></main>
+<script>
+const status=document.getElementById('status');
+const localUrls=['./vendor/three/build/three.module.js','./vendor/three/examples/jsm/loaders/GLTFLoader.js','./vendor/open-water/src/main.js'];
+const remoteUrls=['https://unpkg.com/three@0.169.0/build/three.module.js','https://unpkg.com/three@0.169.0/examples/jsm/loaders/GLTFLoader.js','https://leonxlnx.github.io/open-water/src/main.js'];
+async function check(url,ms=3000){const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),ms);try{const r=await fetch(url,{method:'GET',mode:'cors',signal:ctrl.signal,cache:'no-store'});const mime=(r.headers.get('content-type')||'').split(';')[0].trim().toLowerCase();return r.ok&&/^(text\/javascript|application\/javascript|application\/ecmascript|text\/ecmascript|application\/x-javascript)$/.test(mime);}catch{return false;}finally{clearTimeout(timer);}}
+async function launch(){status.textContent='检查服务器资源和在线依赖…';
+ const [locals,online]=await Promise.all([Promise.all(localUrls.map(u=>check(u,1200))),Promise.all(remoteUrls.map(u=>check(u,2600)))]);
+ const local=locals.every(Boolean),remote=online.every(Boolean);
+ if(local){status.textContent='服务器本地模块 MIME 正确，正在载入游戏…';location.replace('./index-local.html?v=29');return;}
+ if(remote){status.textContent='在线模块 MIME 正确，正在载入游戏…';location.replace('./index-online.html?v=29');return;}
+ status.textContent='在线模块不可用或 Content-Type 错误（text/plain），服务器 vendor 模块也不可用。请管理员运行 python serve.py --install；若使用 Nginx/其他服务器，请配置 .js/.mjs 的 MIME 为 text/javascript。';
+}
+document.getElementById('retry').onclick=launch;launch();
+</script></body></html>

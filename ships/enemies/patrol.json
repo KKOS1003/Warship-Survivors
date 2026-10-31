@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "enemy_patrol",
+  "name": "巡逻艇",
+  "class": "巡逻艇",
+  "description": "敌我通用舰艇 schemaVersion=1。可单独导入本舰种 JSON；炮塔数、炮管数、装填与射界均来自 weapons。",
+  "model": {
+    "asset": "assets/enemy_warship.glb",
+    "format": "glb",
+    "rig": "generic",
+    "yawOffsetDegrees": 0,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 48,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 5.5,
+      "halfLength": 24.0,
+      "bottom": -6,
+      "top": 14
+    },
+    "criticalZones": [
+      {
+        "id": "citadel-midship",
+        "type": "citadel",
+        "center": [
+          0,
+          1.2,
+          0
+        ],
+        "halfSize": [
+          6.05,
+          5.6,
+          7.68
+        ],
+        "multiplier": 4.5
+      },
+      {
+        "id": "magazine-1",
+        "type": "magazine",
+        "center": [
+          0,
+          1.0,
+          -14
+        ],
+        "halfSize": [
+          5.78,
+          4.6,
+          2.88
+        ],
+        "multiplier": 7
+      }
+    ]
+  },
+  "stats": {
+    "maxHp": 80,
+    "maxKnots": 34,
+    "acceleration": 2.5,
+    "armor": 0.03,
+    "regen": 0,
+    "pickupRadius": 65,
+    "targetKnots": 20,
+    "actualKnots": 20
+  },
+  "weapons": {
+    "main": {
+      "damage": 4.7,
+      "range": 900,
+      "reload": 11.88,
+      "turnRate": 17,
+      "spread": 0.067,
+      "turrets": [
+        {
+          "id": "turret-1",
+          "label": "1号主炮",
+          "origin": [
+            0,
+            9,
+            -14
+          ],
+          "facing": -1,
+          "arcDegrees": 150,
+          "barrels": 1,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 1.5,
+      "range": 432.0,
+      "reload": 10.5,
+      "turnRate": 17,
+      "spread": 0.055,
+      "burnChance": 0.035,
+      "initialCount": 0,
+      "mounts": []
+    },
+    "antiAir": {
+      "damage": 0.4,
+      "accuracy": 0.12,
+      "rate": 2,
+      "range": 450
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "火力覆盖",
+      "key": "Q",
+      "enabled": false,
+      "cooldown": 35,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": false,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "战术增压",
+      "key": "T",
+      "enabled": false,
+      "cooldown": 50,
+      "duration": 13,
+      "cost": 5
+    }
+  ],
+  "enemy": {
+    "role": "patrol",
+    "boss": false,
+    "spawnSpeedMin": 20,
+    "spawnSpeedMax": 34,
+    "turnRate": 3.3,
+    "shellSpeed": 112,
+    "reloadJitter": 0.12,
+    "maneuverMin": 8,
+    "maneuverMax": 19,
+    "rewardXP": 18,
+    "rewardScrap": 1,
+    "ramDamage": 20,
+    "xpHealthScaling": 0.000333,
+    "bossWaveHealthBonus": 0,
+    "openingDamageMultiplier": 0.76,
+    "openingReloadMultiplier": 1.23
+  }
+}

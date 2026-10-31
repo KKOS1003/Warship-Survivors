@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "id": "enemy_cruiser",
+  "name": "巡洋舰",
+  "class": "巡洋舰",
+  "description": "敌我通用舰艇 schemaVersion=1。可单独导入本舰种 JSON；炮塔数、炮管数、装填与射界均来自 weapons。",
+  "model": {
+    "asset": "assets/enemy_warship.glb",
+    "format": "glb",
+    "rig": "generic",
+    "yawOffsetDegrees": 0,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 100,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 13,
+      "halfLength": 50.0,
+      "bottom": -6,
+      "top": 18.0
+    },
+    "criticalZones": [
+      {
+        "id": "citadel-midship",
+        "type": "citadel",
+        "center": [
+          0,
+          2.64,
+          0
+        ],
+        "halfSize": [
+          14.3,
+          6.72,
+          16.0
+        ],
+        "multiplier": 4.5
+      },
+      {
+        "id": "magazine-1",
+        "type": "magazine",
+        "center": [
+          0,
+          2.4,
+          -31
+        ],
+        "halfSize": [
+          13.65,
+          5.52,
+          6.0
+        ],
+        "multiplier": 7
+      },
+      {
+        "id": "magazine-2",
+        "type": "magazine",
+        "center": [
+          0,
+          2.4,
+          29
+        ],
+        "halfSize": [
+          13.65,
+          5.52,
+          6.0
+        ],
+        "multiplier": 7
+      }
+    ]
+  },
+  "stats": {
+    "maxHp": 225,
+    "maxKnots": 24,
+    "acceleration": 1.15,
+    "armor": 0.03,
+    "regen": 0,
+    "pickupRadius": 65,
+    "targetKnots": 12,
+    "actualKnots": 12
+  },
+  "weapons": {
+    "main": {
+      "damage": 14,
+      "range": 1650,
+      "reload": 14.18,
+      "turnRate": 17,
+      "spread": 0.046,
+      "turrets": [
+        {
+          "id": "turret-1",
+          "label": "1号主炮",
+          "origin": [
+            0,
+            10.5,
+            -31
+          ],
+          "facing": -1,
+          "arcDegrees": 150,
+          "barrels": 2,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "turret-2",
+          "label": "2号主炮",
+          "origin": [
+            0,
+            10.5,
+            29
+          ],
+          "facing": 1,
+          "arcDegrees": 150,
+          "barrels": 2,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 4.06,
+      "range": 792.0,
+      "reload": 10.5,
+      "turnRate": 17,
+      "spread": 0.055,
+      "burnChance": 0.035,
+      "initialCount": 6,
+      "mounts": [
+        {
+          "side": -1,
+          "x": -11.0,
+          "y": 6.0,
+          "z": -23.3
+        },
+        {
+          "side": -1,
+          "x": -11.0,
+          "y": 6.0,
+          "z": -0.0
+        },
+        {
+          "side": -1,
+          "x": -11.0,
+          "y": 6.0,
+          "z": 23.3
+        },
+        {
+          "side": 1,
+          "x": 11.0,
+          "y": 6.0,
+          "z": -23.3
+        },
+        {
+          "side": 1,
+          "x": 11.0,
+          "y": 6.0,
+          "z": -0.0
+        },
+        {
+          "side": 1,
+          "x": 11.0,
+          "y": 6.0,
+          "z": 23.3
+        }
+      ]
+    },
+    "antiAir": {
+      "damage": 1.7,
+      "accuracy": 0.2,
+      "rate": 12,
+      "range": 940
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "火力覆盖",
+      "key": "Q",
+      "enabled": false,
+      "cooldown": 35,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": false,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "战术增压",
+      "key": "T",
+      "enabled": false,
+      "cooldown": 50,
+      "duration": 13,
+      "cost": 5
+    }
+  ],
+  "enemy": {
+    "role": "cruiser",
+    "boss": false,
+    "spawnSpeedMin": 12,
+    "spawnSpeedMax": 24,
+    "turnRate": 1.6,
+    "shellSpeed": 145,
+    "reloadJitter": 0.12,
+    "maneuverMin": 8,
+    "maneuverMax": 19,
+    "rewardXP": 75,
+    "rewardScrap": 2,
+    "ramDamage": 20,
+    "xpHealthScaling": 0.000333,
+    "bossWaveHealthBonus": 0,
+    "openingDamageMultiplier": 0.81,
+    "openingReloadMultiplier": 1.16
+  }
+}

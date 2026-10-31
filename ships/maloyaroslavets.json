@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "id": "maloyaroslavets",
+  "name": "马洛亚罗斯拉韦茨",
+  "class": "苏联混合战舰",
+  "description": "GLB 原始模型含两组 rgm164_406mm_50_mk1 主炮节点；每组为三联装，使用模型本身炮塔转轴驱动。副炮炮位为模拟值。 V16：扩大基础拾取范围；Q/E 不消耗补给；E 技能配置化。",
+  "model": {
+    "asset": "assets/soviet_hybrid_warship_maloyaroslavets.glb",
+    "format": "glb",
+    "rig": "generic",
+    "yawOffsetDegrees": 180,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 208,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 15,
+      "halfLength": 104,
+      "bottom": -7,
+      "top": 33
+    }
+  },
+  "stats": {
+    "maxHp": 810,
+    "maxKnots": 32,
+    "acceleration": 1.65,
+    "armor": 0.075,
+    "regen": 0.25,
+    "pickupRadius": 260,
+    "targetKnots": 16,
+    "actualKnots": 10
+  },
+  "weapons": {
+    "main": {
+      "damage": 37,
+      "range": 2300,
+      "reload": 12.2,
+      "turnRate": 11.5,
+      "spread": 0.047,
+      "turrets": [
+        {
+          "id": "main-a",
+          "label": "1号三联装 406mm",
+          "origin": [
+            0,
+            9.5,
+            -34
+          ],
+          "facing": -1,
+          "arcDegrees": 145,
+          "barrels": 3,
+          "pivotNode": "rgm164_406mm_50_mk1",
+          "turnAxis": "z",
+          "turnSign": -1,
+          "muzzleLength": 14,
+          "barrelSpacing": 3.15,
+          "muzzleRise": 2.1
+        },
+        {
+          "id": "main-b",
+          "label": "2号三联装 406mm",
+          "origin": [
+            0,
+            9.5,
+            -18
+          ],
+          "facing": -1,
+          "arcDegrees": 145,
+          "barrels": 3,
+          "pivotNode": "rgm164_406mm_50_mk11",
+          "turnAxis": "z",
+          "turnSign": -1,
+          "muzzleLength": 14,
+          "barrelSpacing": 3.15,
+          "muzzleRise": 2.1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 4.1,
+      "range": 670,
+      "reload": 7.6,
+      "turnRate": 20,
+      "spread": 0.047,
+      "burnChance": 0.04,
+      "initialCount": 10,
+      "mounts": [
+        {
+          "side": -1,
+          "x": -12,
+          "y": 10.8,
+          "z": -57
+        },
+        {
+          "side": -1,
+          "x": -12,
+          "y": 10.8,
+          "z": -28
+        },
+        {
+          "side": -1,
+          "x": -12,
+          "y": 10.8,
+          "z": 0
+        },
+        {
+          "side": -1,
+          "x": -12,
+          "y": 10.8,
+          "z": 28
+        },
+        {
+          "side": -1,
+          "x": -12,
+          "y": 10.8,
+          "z": 57
+        },
+        {
+          "side": 1,
+          "x": 12,
+          "y": 10.8,
+          "z": -57
+        },
+        {
+          "side": 1,
+          "x": 12,
+          "y": 10.8,
+          "z": -28
+        },
+        {
+          "side": 1,
+          "x": 12,
+          "y": 10.8,
+          "z": 0
+        },
+        {
+          "side": 1,
+          "x": 12,
+          "y": 10.8,
+          "z": 28
+        },
+        {
+          "side": 1,
+          "x": 12,
+          "y": 10.8,
+          "z": 57
+        }
+      ]
+    },
+    "antiAir": {
+      "damage": 3.1,
+      "accuracy": 0.3,
+      "rate": 52,
+      "range": 1500
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "高速巡航",
+      "key": "Q",
+      "enabled": true,
+      "cooldown": 45,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0,
+      "effect": "high_speed_cruise",
+      "duration": 12,
+      "speedMultiplier": 1.4,
+      "accelerationMultiplier": 1.7,
+      "turnMultiplier": 1.55
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": true,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "主炮高速装填",
+      "key": "T",
+      "enabled": true,
+      "cooldown": 52,
+      "duration": 11,
+      "cost": 6,
+      "effect": "rapid_reload",
+      "reloadMultiplier": 0.56,
+      "damageMultiplier": 1.28
+    },
+    {
+      "id": "airstrike",
+      "name": "轰炸机小队",
+      "key": "E",
+      "enabled": true,
+      "cooldown": 78,
+      "cost": 0,
+      "planes": 4,
+      "damage": 100,
+      "radius": 62,
+      "range": 2700
+    }
+  ]
+}

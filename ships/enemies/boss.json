@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "id": "enemy_boss",
+  "name": "旗舰 BOSS",
+  "class": "旗舰 BOSS",
+  "description": "敌我通用舰艇 schemaVersion=1。可单独导入本舰种 JSON；炮塔数、炮管数、装填与射界均来自 weapons。",
+  "model": {
+    "asset": "assets/enemy_warship.glb",
+    "format": "glb",
+    "rig": "generic",
+    "yawOffsetDegrees": 0,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 182,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 26,
+      "halfLength": 91.0,
+      "bottom": -6,
+      "top": 32.76
+    },
+    "criticalZones": [
+      {
+        "id": "citadel-midship",
+        "type": "citadel",
+        "center": [
+          0,
+          7.95,
+          0
+        ],
+        "halfSize": [
+          28.6,
+          10.85,
+          29.12
+        ],
+        "multiplier": 4.5
+      },
+      {
+        "id": "magazine-1",
+        "type": "magazine",
+        "center": [
+          0,
+          7.57,
+          -58
+        ],
+        "halfSize": [
+          27.3,
+          8.91,
+          10.92
+        ],
+        "multiplier": 7
+      },
+      {
+        "id": "magazine-2",
+        "type": "magazine",
+        "center": [
+          0,
+          7.57,
+          48
+        ],
+        "halfSize": [
+          27.3,
+          8.91,
+          10.92
+        ],
+        "multiplier": 7
+      }
+    ]
+  },
+  "stats": {
+    "maxHp": 2250,
+    "maxKnots": 17,
+    "acceleration": 0.7,
+    "armor": 0.11,
+    "regen": 0,
+    "pickupRadius": 65,
+    "targetKnots": 8,
+    "actualKnots": 8
+  },
+  "weapons": {
+    "main": {
+      "damage": 22,
+      "range": 2300,
+      "reload": 19,
+      "turnRate": 11,
+      "spread": 0.035,
+      "turrets": [
+        {
+          "id": "turret-1",
+          "label": "1号主炮",
+          "origin": [
+            0,
+            19.11,
+            -58
+          ],
+          "facing": -1,
+          "arcDegrees": 154,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "turret-2",
+          "label": "2号主炮",
+          "origin": [
+            0,
+            19.11,
+            -34
+          ],
+          "facing": -1,
+          "arcDegrees": 154,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "turret-3",
+          "label": "3号主炮",
+          "origin": [
+            0,
+            19.11,
+            48
+          ],
+          "facing": 1,
+          "arcDegrees": 154,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 6.38,
+      "range": 850,
+      "reload": 8.2,
+      "turnRate": 17,
+      "spread": 0.055,
+      "burnChance": 0.035,
+      "initialCount": 16,
+      "mounts": [
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": -55.7
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": -39.8
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": -23.9
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": -8.0
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": 8.0
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": 23.9
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": 39.8
+        },
+        {
+          "side": -1,
+          "x": -22.1,
+          "y": 10.9,
+          "z": 55.7
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": -55.7
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": -39.8
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": -23.9
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": -8.0
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": 8.0
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": 23.9
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": 39.8
+        },
+        {
+          "side": 1,
+          "x": 22.1,
+          "y": 10.9,
+          "z": 55.7
+        }
+      ]
+    },
+    "antiAir": {
+      "damage": 3.1,
+      "accuracy": 0.29,
+      "rate": 32,
+      "range": 1450
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "火力覆盖",
+      "key": "Q",
+      "enabled": false,
+      "cooldown": 35,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": false,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "战术增压",
+      "key": "T",
+      "enabled": false,
+      "cooldown": 50,
+      "duration": 13,
+      "cost": 5
+    }
+  ],
+  "enemy": {
+    "role": "boss",
+    "boss": true,
+    "spawnSpeedMin": 8,
+    "spawnSpeedMax": 17,
+    "turnRate": 0.92,
+    "shellSpeed": 180,
+    "reloadJitter": 0.12,
+    "maneuverMin": 8,
+    "maneuverMax": 19,
+    "rewardXP": 700,
+    "rewardScrap": 25,
+    "ramDamage": 85,
+    "xpHealthScaling": 0.000333,
+    "bossWaveHealthBonus": 660,
+    "openingDamageMultiplier": 0.81,
+    "openingReloadMultiplier": 1.16
+  }
+}

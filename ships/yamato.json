@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "yamato",
+  "name": "大和号",
+  "class": "战列舰",
+  "description": "游戏初始战舰；所有坐标均为舰体标准化之后的 Three.js 本地米制坐标。 V16：扩大基础拾取范围；Q/E 不消耗补给；E 技能配置化。",
+  "model": {
+    "asset": "assets/yamato.zip",
+    "format": "zip",
+    "rig": "yamato-original",
+    "yawOffsetDegrees": 180,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 263,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 24,
+      "halfLength": 132,
+      "bottom": -8,
+      "top": 41
+    }
+  },
+  "stats": {
+    "maxHp": 1000,
+    "maxKnots": 30,
+    "acceleration": 0.95,
+    "armor": 0,
+    "regen": 0.32,
+    "pickupRadius": 250,
+    "targetKnots": 14,
+    "actualKnots": 8
+  },
+  "weapons": {
+    "main": {
+      "damage": 30,
+      "range": 2100,
+      "reload": 9.8,
+      "turnRate": 13,
+      "spread": 0.048,
+      "turrets": [
+        {
+          "id": "main-1",
+          "label": "舰艏一号",
+          "origin": [
+            0,
+            18,
+            -60
+          ],
+          "facing": -1,
+          "arcDegrees": 140,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "main-2",
+          "label": "舰艏二号",
+          "origin": [
+            0,
+            18,
+            -29
+          ],
+          "facing": -1,
+          "arcDegrees": 140,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "main-3",
+          "label": "舰艉三号",
+          "origin": [
+            0,
+            18,
+            64
+          ],
+          "facing": 1,
+          "arcDegrees": 148,
+          "barrels": 3,
+          "pivotNode": "",
+          "turnAxis": "y",
+          "turnSign": 1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 4,
+      "range": 590,
+      "reload": 7.2,
+      "turnRate": 18,
+      "spread": 0.037,
+      "burnChance": 0.035,
+      "initialCount": 16,
+      "mounts": [
+        {
+          "side": -1,
+          "x": -13.5,
+          "y": 13.3,
+          "z": -82.25
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -58.75
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -35.25
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -11.75
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": 11.75
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": 35.25
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": 58.75
+        },
+        {
+          "side": -1,
+          "x": -13.5,
+          "y": 13.3,
+          "z": 82.25
+        },
+        {
+          "side": 1,
+          "x": 13.5,
+          "y": 13.3,
+          "z": -82.25
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -58.75
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -35.25
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -11.75
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": 11.75
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": 35.25
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": 58.75
+        },
+        {
+          "side": 1,
+          "x": 13.5,
+          "y": 13.3,
+          "z": 82.25
+        }
+      ]
+    },
+    "antiAir": {
+      "damage": 2.7,
+      "accuracy": 0.26,
+      "rate": 44,
+      "range": 1450
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "火力覆盖",
+      "key": "Q",
+      "enabled": true,
+      "cooldown": 35,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": true,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "战术增压",
+      "key": "T",
+      "enabled": true,
+      "cooldown": 50,
+      "duration": 13,
+      "cost": 5
+    },
+    {
+      "id": "airstrike",
+      "name": "主炮强化",
+      "key": "E",
+      "enabled": true,
+      "effect": "main_battery_overcharge",
+      "cooldown": 62,
+      "duration": 14,
+      "damageMultiplier": 1.35,
+      "spreadMultiplier": 0.72,
+      "turnMultiplier": 1.25,
+      "cost": 0
+    }
+  ]
+}

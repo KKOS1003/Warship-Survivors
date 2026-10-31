@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "example_cruiser",
+  "name": "自定义巡洋舰（配置模板）",
+  "class": "巡洋舰",
+  "description": "示例配置：请另行提供自己的 GLB 模型；炮塔 pivotNode 可配置为模型内独立可旋转节点的名称。",
+  "model": {
+    "asset": "my_cruiser.glb",
+    "format": "glb",
+    "rig": "generic",
+    "yawOffsetDegrees": 0,
+    "scale": 1,
+    "draftOffset": 0,
+    "lengthMeters": 190,
+    "forwardAxis": "-Z",
+    "collision": {
+      "halfBeam": 15,
+      "halfLength": 95,
+      "bottom": -6,
+      "top": 30
+    }
+  },
+  "stats": {
+    "maxHp": 680,
+    "maxKnots": 35,
+    "acceleration": 1.3,
+    "armor": 0,
+    "regen": 0.32,
+    "pickupRadius": 115,
+    "targetKnots": 16,
+    "actualKnots": 9
+  },
+  "weapons": {
+    "main": {
+      "damage": 20,
+      "range": 1500,
+      "reload": 7.5,
+      "turnRate": 19,
+      "spread": 0.04,
+      "turrets": [
+        {
+          "id": "A",
+          "label": "舰艏炮塔",
+          "origin": [
+            0,
+            13,
+            -45
+          ],
+          "facing": -1,
+          "arcDegrees": 145,
+          "barrels": 2,
+          "pivotNode": "Turret_A",
+          "turnAxis": "y",
+          "turnSign": 1
+        },
+        {
+          "id": "B",
+          "label": "舰艉炮塔",
+          "origin": [
+            0,
+            13,
+            47
+          ],
+          "facing": 1,
+          "arcDegrees": 145,
+          "barrels": 2,
+          "pivotNode": "Turret_B",
+          "turnAxis": "y",
+          "turnSign": 1
+        }
+      ]
+    },
+    "secondary": {
+      "damage": 4,
+      "range": 590,
+      "reload": 7.2,
+      "turnRate": 18,
+      "spread": 0.037,
+      "burnChance": 0.035,
+      "initialCount": 8,
+      "mounts": [
+        {
+          "side": -1,
+          "x": -13.5,
+          "y": 13.3,
+          "z": -82.25
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -58.75
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -35.25
+        },
+        {
+          "side": -1,
+          "x": -19.5,
+          "y": 13.3,
+          "z": -11.75
+        },
+        {
+          "side": 1,
+          "x": 13.5,
+          "y": 13.3,
+          "z": -82.25
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -58.75
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -35.25
+        },
+        {
+          "side": 1,
+          "x": 19.5,
+          "y": 13.3,
+          "z": -11.75
+        }
+      ]
+    },
+    "antiAir": {
+      "damage": 2.7,
+      "accuracy": 0.26,
+      "rate": 30,
+      "range": 1100
+    }
+  },
+  "skills": [
+    {
+      "id": "barrage",
+      "name": "火力覆盖",
+      "key": "Q",
+      "enabled": true,
+      "cooldown": 35,
+      "range": 1050,
+      "damage": 45,
+      "damageMainMultiplier": 0.65,
+      "airRange": 950,
+      "airDamageMultiplier": 11,
+      "cost": 0
+    },
+    {
+      "id": "repair",
+      "name": "持续维修",
+      "key": "R",
+      "enabled": true,
+      "cooldown": 1,
+      "heal": 160,
+      "duration": 12,
+      "cost": 7
+    },
+    {
+      "id": "boost",
+      "name": "战术增压",
+      "key": "T",
+      "enabled": true,
+      "cooldown": 50,
+      "duration": 13,
+      "cost": 5
+    }
+  ]
+}
